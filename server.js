@@ -18,6 +18,7 @@ const app = express()
 app.use(express.json())
 app.use("/", express.static("public"))
 app.use("/uploads", express.static("./uploads"))
+app.use("/docs", express.static("./routes/docs"))
 
 app.use("/api", appRouter)
 app.use(express.urlencoded({ extended: false }))
