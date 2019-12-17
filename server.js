@@ -16,8 +16,10 @@ mongoose
 
 const app = express()
 app.use(express.json())
-app.use("/api", appRouter)
+app.use("/", express.static("public"))
 app.use("/uploads", express.static("./uploads"))
+
+app.use("/api", appRouter)
 app.use(express.urlencoded({ extended: false }))
 
 const port = process.env.PORT || 2000
