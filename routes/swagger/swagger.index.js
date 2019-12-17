@@ -5,11 +5,11 @@ const {
   definitionStations
 } = require("./stations")
 
-const keys = require("../../config/index")
+const config = require("../../config")
 
 module.exports = {
   swagger: "2.0",
-  host: keys.host,
+  host: config.host,
   basePath: "/api",
   schemes: ["http", "https"],
   consumes: ["application / json"],
