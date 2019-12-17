@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose")
 const appRouter = require("./routes/api")
@@ -19,7 +20,7 @@ app.use("/api", appRouter)
 app.use("/uploads", express.static("./uploads"))
 app.use(express.urlencoded({ extended: false }))
 
-const port = config.PORT
+const port = process.env.PORT || 2000
 app.listen(port, () => {
   console.log(`Server is running on ${port}`)
 })

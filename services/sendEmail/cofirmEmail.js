@@ -1,4 +1,6 @@
+const config = require("../../config")
 const nodemailer = require("nodemailer")
+
 const fs = require("fs")
 const hogan = require("hogan.js")
 const template = fs.readFileSync(
@@ -14,13 +16,13 @@ module.exports.sendConfirmEmail = (ticket, trip, user) => {
     requireTLS: true,
     requireSSL: true,
     auth: {
-      user: "tringuyen194.dev@gmail.com",
-      pass: "dontlookat299"
+      user: config.EMAIL,
+      pass: config.PASSWORD
     }
   }
   const transporter = nodemailer.createTransport(transport)
   const mailOption = {
-    from: "tringuyen194.dev@gmail.com",
+    from: config.EMAIL,
     to: user.email,
     subject: "Mail xac nhan ban da mua ve xe thanh cong",
     html: compiledTemlate.render({

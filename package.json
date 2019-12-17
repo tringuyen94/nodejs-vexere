@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "debug": "set NODE_ENV=STAGING&& nodemon server.js"
+    "dev": "set NODE_ENV=STAGING&& nodemon server.js"
   },
   "keywords": [],
   "author": "",

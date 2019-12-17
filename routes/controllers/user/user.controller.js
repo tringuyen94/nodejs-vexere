@@ -1,3 +1,4 @@
+const config = require("../../../config")
 const { User } = require("../../../models/user.model")
 const bcrypt = require("bcryptjs")
 const jsonWebToken = require("jsonwebtoken")
@@ -46,7 +47,7 @@ const login = (req, res, next) => {
         email: user.email,
         userType: user.userType
       }
-      return jwtSign(payload, "myVeXeRe", { expiresIn: 3600 })
+      return jwtSign(payload, config.SECRET_KEY, { expiresIn: 3600 })
     })
     .then(token =>
       res.status(200).json({ messages: "Login successfully", jwt: token })

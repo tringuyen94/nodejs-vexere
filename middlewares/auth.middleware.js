@@ -1,4 +1,6 @@
+const config = require("../config")
 const { promisify } = require("util")
+
 const jwt = require("jsonwebtoken")
 const jwtVerify = promisify(jwt.verify)
 
@@ -8,7 +10,7 @@ const authentication = (req, res, next) => {
     return res
       .status(404)
       .json({ message: "Access denided, no token provided" })
-  return jwtVerify(token, "myVeXeRe").then(decoded => {
+  return jwtVerify(token, config.SECRET_KEY).then(decoded => {
     req.user = decoded
     next()
   })
