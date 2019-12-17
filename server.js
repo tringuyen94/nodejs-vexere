@@ -19,7 +19,7 @@ app.use("/api", appRouter)
 app.use("/uploads", express.static("./uploads"))
 app.use(express.urlencoded({ extended: false }))
 
-const port = 2000
+const port = config.PORT
 app.listen(port, () => {
   console.log(`Server is running on ${port}`)
 })
